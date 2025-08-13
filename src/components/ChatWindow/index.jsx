@@ -14,7 +14,10 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
 
   if (loading) {
     return (
-      <div className="allm-flex allm-flex-col allm-h-full dark allm-bg-black-900 allm-text-white">
+      <div
+        className="allm-flex allm-flex-col allm-bg-black-900 allm-text-white"
+        style={{ height: "100%" }}
+      >
         <ChatWindowHeader
           sessionId={sessionId}
           settings={settings}
@@ -34,7 +37,10 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
   setEventDelegatorForCodeSnippets();
 
   return (
-    <div className="allm-flex allm-flex-col allm-h-full dark allm-bg-black-900 allm-text-white">
+    <div
+      className="allm-flex allm-flex-col allm-bg-black-900 allm-text-white"
+      style={{ height: "100%" }}
+    >
       {!settings.noHeader && (
         <ChatWindowHeader
           sessionId={sessionId}
