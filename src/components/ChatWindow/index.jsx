@@ -14,7 +14,7 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
 
   if (loading) {
     return (
-      <div className="allm-flex allm-flex-col allm-h-full">
+      <div className="allm-flex allm-flex-col allm-h-full dark allm-bg-black-900 allm-text-white">
         <ChatWindowHeader
           sessionId={sessionId}
           settings={settings}
@@ -34,7 +34,7 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
   setEventDelegatorForCodeSnippets();
 
   return (
-    <div className="allm-flex allm-flex-col allm-h-full">
+    <div className="allm-flex allm-flex-col allm-h-full dark allm-bg-black-900 allm-text-white">
       {!settings.noHeader && (
         <ChatWindowHeader
           sessionId={sessionId}
@@ -44,14 +44,14 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
           setChatHistory={setChatHistory}
         />
       )}
-      <div className="allm-flex-grow allm-overflow-y-auto">
+      <div className="allm-flex-grow allm-overflow-y-auto allm-bg-black-900">
         <ChatContainer
           sessionId={sessionId}
           settings={settings}
           knownHistory={chatHistory}
         />
       </div>
-      <div className="allm-mt-4 allm-pb-4 allm-h-fit allm-gap-y-2 allm-z-10">
+      <div className="allm-mt-4 allm-pb-4 allm-h-fit allm-gap-y-2 allm-z-10 allm-bg-black-900">
         <Sponsor settings={settings} />
         <ResetChat
           setChatHistory={setChatHistory}

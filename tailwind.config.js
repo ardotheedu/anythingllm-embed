@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'false',
+  darkMode: 'class',
   prefix: 'allm-',
   corePlugins: {
     preflight: false,

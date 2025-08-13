@@ -8,7 +8,7 @@ import { formatDate } from "@/utils/date";
 const ThinkingIndicator = ({ hasThought }) => {
   if (hasThought) {
     return (
-      <div className="allm-flex allm-items-center allm-gap-x-2 allm-text-gray-500">
+      <div className="allm-flex allm-items-center allm-gap-x-2 allm-text-gray-500 dark:allm-text-gray-400">
         <CircleNotch size={16} className="allm-animate-spin" />
         <span className="allm-text-sm">Thinking...</span>
       </div>
@@ -27,7 +27,7 @@ const ThoughtBubble = ({ thought }) => {
     <div className="allm-mb-2">
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className="allm-cursor-pointer allm-flex allm-items-center allm-gap-x-1.5 allm-text-gray-400 hover:allm-text-gray-500"
+        className="allm-cursor-pointer allm-flex allm-items-center allm-gap-x-1.5 allm-text-gray-400 hover:allm-text-gray-500 dark:allm-text-gray-300 dark:hover:allm-text-gray-400"
       >
         <CaretDown
           size={14}
@@ -38,7 +38,7 @@ const ThoughtBubble = ({ thought }) => {
       </div>
       {isExpanded && (
         <div className="allm-mt-2 allm-mb-3 allm-pl-0 allm-border-l-2 allm-border-gray-200">
-          <div className="allm-text-xs allm-text-gray-600 allm-font-mono allm-whitespace-pre-wrap">
+          <div className="allm-text-xs allm-text-gray-600 dark:allm-text-gray-300 allm-font-mono allm-whitespace-pre-wrap">
             {cleanThought}
           </div>
         </div>
@@ -123,9 +123,9 @@ const PromptReply = forwardRef(
               alt="Anything LLM Icon"
               className="allm-w-9 allm-h-9 allm-flex-shrink-0 allm-ml-2"
             />
-            <div className="allm-py-[11px] allm-px-4 allm-rounded-lg allm-flex allm-flex-col allm-bg-red-200 allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-mr-[37px] allm-ml-[9px]">
+            <div className="allm-py-[11px] allm-px-4 allm-rounded-lg allm-flex allm-flex-col allm-bg-red-200 dark:allm-bg-red-800 allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-mr-[37px] allm-ml-[9px]">
               <div className="allm-flex allm-gap-x-5">
-                <span className="allm-inline-block allm-p-2 allm-rounded-lg allm-bg-red-50 allm-text-red-500">
+                <span className="allm-inline-block allm-p-2 allm-rounded-lg allm-bg-red-50 dark:allm-bg-red-900 allm-text-red-500 dark:allm-text-red-300">
                   <Warning className="allm-h-4 allm-w-4 allm-mb-1 allm-inline-block" />{" "}
                   Could not respond to message.
                   <span className="allm-text-xs">Server error</span>

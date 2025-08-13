@@ -14,9 +14,8 @@ export default function App() {
   const sessionId = useSessionId();
 
   useEffect(() => {
-    if (embedSettings.openOnLoad === "on") {
-      toggleOpenChat(true);
-    }
+    // Sempre abrir o chat quando carregar
+    toggleOpenChat(true);
   }, [embedSettings.loaded]);
 
   if (!embedSettings.loaded) return null;
@@ -32,43 +31,30 @@ export default function App() {
   const windowWidth = embedSettings.windowWidth ?? "400px";
   const windowHeight = embedSettings.windowHeight ?? "700px";
 
+  // Detecta tema do sistema
+  const isDarkMode =
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   return (
     <I18nextProvider i18n={i18next}>
       <Head />
       <div
         id="anything-llm-embed-chat-container"
-        className={`allm-fixed allm-inset-0 allm-z-50 ${isChatOpen ? "allm-block" : "allm-hidden"}`}
+        className={`allm-w-full allm-h-full ${isDarkMode ? "dark" : ""}`}
       >
         <div
-          style={{
-            maxWidth: windowWidth,
-            maxHeight: windowHeight,
-            height: "100%",
-          }}
-          className={`allm-h-full allm-w-full allm-bg-white allm-fixed allm-bottom-0 allm-right-0 allm-mb-4 allm-md:mr-4 allm-rounded-2xl allm-border allm-border-gray-300 allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-flex allm-flex-col ${positionClasses[position]}`}
+          className={`allm-h-full allm-w-full allm-bg-white dark:allm-bg-black-900 allm-flex allm-flex-col allm-rounded-lg allm-border allm-border-gray-300 allm-shadow-lg`}
           id="anything-llm-chat"
         >
-          {isChatOpen && (
-            <ChatWindow
-              closeChat={() => toggleOpenChat(false)}
-              settings={embedSettings}
-              sessionId={sessionId}
-            />
-          )}
-        </div>
-      </div>
-      {!isChatOpen && (
-        <div
-          id="anything-llm-embed-chat-button-container"
-          className={`allm-fixed allm-bottom-0 ${positionClasses[position]} allm-mb-4 allm-z-50`}
-        >
-          <OpenButton
+          <ChatWindow
+            closeChat={() => toggleOpenChat(false)}
             settings={embedSettings}
-            isOpen={isChatOpen}
-            toggleOpen={() => toggleOpenChat(true)}
+            sessionId={sessionId}
           />
         </div>
-      )}
+      </div>
     </I18nextProvider>
   );
 }
