@@ -19,8 +19,8 @@ const DEFAULT_SETTINGS = {
   userBgColor: "#2C2F35", // user text bubble color
   assistantBgColor: "#2563eb", // assistant text bubble color
   noSponsor: null, // Shows sponsor in footer of chat
-  sponsorText: "Powered by AnythingLLM", // default sponsor text
-  sponsorLink: "https://anythingllm.com", // default sponsor link
+  sponsorText: "", // default sponsor text
+  sponsorLink: "", // default sponsor link
   position: "bottom-right", // position of chat button/window
   assistantName: "AnythingLLM Chat Assistant", // default assistant name
   assistantIcon: null, // default assistant icon
@@ -29,8 +29,8 @@ const DEFAULT_SETTINGS = {
   textSize: null, // text size in px (number only)
   noHeader: null, // If set, hide the header above the chatbox
   language: "en", // language of chat interface
-  sendMessageText: null, // override text for send message button
-  resetChatText: null, // override text for reset chat button
+  sendMessageText: "Envie uma mensagem", // override text for send message button
+  resetChatText: "Resete o chat", // override text for reset chat button
 
   // behaviors
   openOnLoad: "off", // or "on"
