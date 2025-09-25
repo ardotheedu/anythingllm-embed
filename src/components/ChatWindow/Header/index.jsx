@@ -93,11 +93,11 @@ function OptionsMenu({ settings, showing, resetChat, sessionId, menuRef }) {
   return (
     <div
       ref={menuRef}
-      className="allm-bg-black-900 allm-absolute allm-z-10 allm-flex allm-flex-col allm-gap-y-1 allm-rounded-xl allm-shadow-lg allm-top-[64px] allm-right-[46px]"
+      className="allm-bg-white allm-absolute allm-z-10 allm-flex allm-flex-col allm-gap-y-1 allm-rounded-xl allm-shadow-lg allm-top-[64px] allm-right-[46px]"
     >
       <button
         onClick={resetChat}
-        className="hover:allm-cursor-pointer allm-bg-black-900 allm-gap-x-[12px] hover:allm-bg-black-900/80 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-description allm-font-bold allm-px-4"
+        className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
       >
         <ArrowCounterClockwise size={24} />
         <p className="allm-text-[14px]">Reset Chat</p>
@@ -121,7 +121,7 @@ function SessionID({ sessionId }) {
 
   if (sessionIdCopied) {
     return (
-      <div className="hover:allm-cursor-pointer allm-bg-black-900 allm-gap-x-[12px] hover:allm-bg-black-900/80 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-description allm-font-bold allm-px-4">
+      <div className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4">
         <Check size={24} />
         <p className="allm-text-[14px] allm-font-sans">Copied!</p>
       </div>
@@ -131,7 +131,7 @@ function SessionID({ sessionId }) {
   return (
     <button
       onClick={copySessionId}
-      className="hover:allm-cursor-pointer allm-bg-black-900 allm-gap-x-[12px] hover:allm-bg-black-900/80 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-description allm-font-bold allm-px-4"
+      className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
     >
       <Copy size={24} />
       <p className="allm-text-[14px]">Session ID</p>
@@ -146,7 +146,7 @@ function ContactSupport({ email = null }) {
   return (
     <a
       href={`mailto:${email}?Subject=${encodeURIComponent(subject)}`}
-      className="allm-no-underline hover:allm-underline hover:allm-cursor-pointer allm-bg-black-900 allm-gap-x-[12px] hover:allm-bg-black-900/80 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-description allm-font-bold allm-px-4"
+      className="allm-no-underline hover:allm-underline hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
     >
       <Envelope size={24} />
       <p className="allm-text-[14px] allm-font-sans">Email Support</p>

@@ -49,15 +49,15 @@ export default function PromptInput({
   };
 
   return (
-  <div className="allm-w-full allm-sticky allm-bottom-0 allm-z-10 allm-flex allm-justify-center allm-items-center allm-bg-black-900">
+    <div className="allm-w-full allm-sticky allm-bottom-0 allm-z-10 allm-flex allm-justify-center allm-items-center allm-bg-white">
       <form
         onSubmit={handleSubmit}
         className="allm-flex allm-flex-col allm-gap-y-1 allm-rounded-t-lg allm-w-full allm-items-center allm-justify-center"
       >
         <div className="allm-flex allm-items-center allm-w-full">
-          <div className="allm-bg-black-900 allm-flex allm-flex-col allm-px-4 allm-overflow-hidden allm-w-full">
+          <div className="allm-bg-white allm-flex allm-flex-col allm-px-4 allm-overflow-hidden allm-w-full">
             <div
-              style={{ border: "1.5px solid #4E5153" }}
+              style={{ border: "1.5px solid #22262833" }}
               className="allm-flex allm-items-center allm-w-full allm-rounded-2xl"
             >
               <textarea
@@ -73,7 +73,7 @@ export default function PromptInput({
                   adjustTextArea(e);
                 }}
                 value={message}
-                className="allm-font-sans allm-border-none allm-cursor-text allm-max-h-[100px] allm-text-[14px] allm-mx-2 allm-py-2 allm-w-full allm-text-white allm-bg-transparent placeholder:allm-text-white/60 allm-resize-none active:allm-outline-none focus:allm-outline-none allm-flex-grow"
+                className="allm-font-sans allm-border-none allm-cursor-text allm-max-h-[100px] allm-text-[14px] allm-mx-2 allm-py-2 allm-w-full allm-text-black allm-bg-transparent placeholder:allm-text-slate-800/60 allm-resize-none active:allm-outline-none focus:allm-outline-none allm-flex-grow"
                 placeholder={settings.sendMessageText || t("chat.send-message")}
                 id="message-input"
               />
@@ -81,7 +81,7 @@ export default function PromptInput({
                 ref={formRef}
                 type="submit"
                 disabled={buttonDisabled}
-                className="allm-bg-transparent allm-border-none allm-inline-flex allm-justify-center allm-rounded-2xl allm-cursor-pointer allm-text-white group"
+                className="allm-bg-transparent allm-border-none allm-inline-flex allm-justify-center allm-rounded-2xl allm-cursor-pointer allm-text-black group"
                 id="send-message-button"
                 aria-label="Send message"
               >
@@ -90,7 +90,7 @@ export default function PromptInput({
                 ) : (
                   <PaperPlaneRight
                     size={24}
-                    className="allm-my-3 allm-text-white/60 hover:allm-text-white/90"
+                    className="allm-my-3 allm-text-[#22262899]/60 group-hover:allm-text-[#22262899]/90"
                     weight="fill"
                   />
                 )}

@@ -47,16 +47,16 @@ export default function ChatHistory({ settings = {}, history = [] }) {
   };
 
   if (history.length === 0) {
-      return (
-        <div className="allm-h-full allm-overflow-y-auto allm-px-2 allm-py-4 allm-flex allm-flex-col allm-justify-start allm-no-scroll">
-          <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
-            <p className="allm-text-slate-400 dark:allm-text-slate-300 allm-text-sm allm-font-sans allm-py-4 allm-text-center">
-              {settings?.greeting ?? "Envie uma mensagem para começar."}
-            </p>
-            <SuggestedMessages settings={settings} />
-          </div>
+    return (
+      <div className="allm-h-full allm-overflow-y-auto allm-px-2 allm-py-4 allm-flex allm-flex-col allm-justify-start allm-no-scroll">
+        <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
+          <p className="allm-text-slate-400 allm-text-sm allm-font-sans allm-py-4 allm-text-center">
+            {settings?.greeting ?? "Send a chat to get started."}
+          </p>
+          <SuggestedMessages settings={settings} />
         </div>
-      );
+      </div>
+    );
   }
 
   return (
@@ -124,13 +124,12 @@ export default function ChatHistory({ settings = {}, history = [] }) {
 export function ChatHistoryLoading() {
   return (
     <div className="allm-h-full allm-w-full allm-relative">
-      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-black-900 allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
+      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-gray-100 allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
           <CircleNotch
             size={14}
             className="allm-text-slate-400 allm-animate-spin"
           />
-          <span className="allm-text-slate-400 allm-mt-2">Carregando...</span>
         </div>
       </div>
     </div>
