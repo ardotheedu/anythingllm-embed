@@ -1,6 +1,6 @@
 const TRANSLATIONS = {
   chat: {
-    "send-message": "Send a message",
+    "send-message": "Envie uma mensagem",
     "reset-chat": "Reset Chat",
   },
 };
