@@ -7,6 +7,8 @@ import {
   DotsThreeOutlineVertical,
   Envelope,
   X,
+  ArrowsOut,
+  ArrowsIn,
 } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 
@@ -16,6 +18,8 @@ export default function ChatWindowHeader({
   iconUrl = null,
   closeChat,
   setChatHistory,
+  isMaximized = false,
+  setIsMaximized,
 }) {
   const [showingOptions, setShowOptions] = useState(false);
   const menuRef = useRef();
@@ -57,6 +61,14 @@ export default function ChatWindowHeader({
         />
       </div>
       <div className="allm-absolute allm-right-0 allm-flex allm-gap-x-1 allm-items-center allm-px-[22px]">
+        <button
+          type="button"
+          onClick={() => setIsMaximized && setIsMaximized(!isMaximized)}
+          className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-gray-100 allm-rounded-sm allm-text-slate-800/60"
+          aria-label={isMaximized ? "Minimize" : "Maximize"}
+        >
+          {isMaximized ? <ArrowsIn size={20} weight="bold" /> : <ArrowsOut size={20} weight="bold" />}
+        </button>
         {settings.loaded && (
           <button
             ref={buttonRef}

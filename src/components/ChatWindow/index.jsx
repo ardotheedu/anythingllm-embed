@@ -1,4 +1,5 @@
 import ChatWindowHeader from "./Header";
+import { useState } from "react";
 import SessionId from "../SessionId";
 import useChatHistory from "@/hooks/chat/useChatHistory";
 import ChatContainer from "./ChatContainer";
@@ -6,7 +7,7 @@ import Sponsor from "../Sponsor";
 import { ChatHistoryLoading } from "./ChatContainer/ChatHistory";
 import ResetChat from "../ResetChat";
 
-export default function ChatWindow({ closeChat, settings, sessionId }) {
+export default function ChatWindow({ closeChat, settings, sessionId, isMaximized = false, setIsMaximized = () => {} }) {
   const { chatHistory, setChatHistory, loading } = useChatHistory(
     settings,
     sessionId
@@ -14,13 +15,15 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
 
   if (loading) {
     return (
-      <div className="allm-flex allm-flex-col allm-h-full">
+      <div className={`allm-flex allm-flex-col ${isMaximized ? 'allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen' : 'allm-h-full'}`}>
         <ChatWindowHeader
           sessionId={sessionId}
           settings={settings}
           iconUrl={settings.brandImageUrl}
           closeChat={closeChat}
           setChatHistory={setChatHistory}
+          isMaximized={isMaximized}
+          setIsMaximized={setIsMaximized}
         />
         <ChatHistoryLoading />
         <div className="allm-pt-4 allm-pb-2 allm-h-fit allm-gap-y-1">
@@ -34,7 +37,7 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
   setEventDelegatorForCodeSnippets();
 
   return (
-    <div className="allm-flex allm-flex-col allm-h-full">
+    <div className={`allm-flex allm-flex-col ${isMaximized ? 'allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen' : 'allm-h-full'}`}>
       {!settings.noHeader && (
         <ChatWindowHeader
           sessionId={sessionId}
@@ -42,6 +45,8 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
           iconUrl={settings.brandImageUrl}
           closeChat={closeChat}
           setChatHistory={setChatHistory}
+          isMaximized={isMaximized}
+          setIsMaximized={setIsMaximized}
         />
       )}
       <div className="allm-flex-grow allm-overflow-y-auto">
