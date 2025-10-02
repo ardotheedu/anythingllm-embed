@@ -30,3 +30,8 @@
     opacity: 100%;
   }
 }
+
+pre {
+	white-space: pre-wrap;
+  	word-wrap: break-word;
+}
