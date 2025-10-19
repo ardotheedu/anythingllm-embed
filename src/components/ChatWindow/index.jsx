@@ -7,7 +7,13 @@ import Sponsor from "../Sponsor";
 import { ChatHistoryLoading } from "./ChatContainer/ChatHistory";
 import ResetChat from "../ResetChat";
 
-export default function ChatWindow({ closeChat, settings, sessionId, isMaximized = false, setIsMaximized = () => {} }) {
+export default function ChatWindow({
+  closeChat,
+  settings,
+  sessionId,
+  isMaximized = false,
+  setIsMaximized = () => {},
+}) {
   const { chatHistory, setChatHistory, loading } = useChatHistory(
     settings,
     sessionId
@@ -15,7 +21,9 @@ export default function ChatWindow({ closeChat, settings, sessionId, isMaximized
 
   if (loading) {
     return (
-      <div className={`allm-flex allm-flex-col ${isMaximized ? 'allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen' : 'allm-h-full'}`}>
+      <div
+        className={`allm-flex allm-flex-col ${isMaximized ? "allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen" : "allm-h-full"}`}
+      >
         <ChatWindowHeader
           sessionId={sessionId}
           settings={settings}
@@ -37,7 +45,9 @@ export default function ChatWindow({ closeChat, settings, sessionId, isMaximized
   setEventDelegatorForCodeSnippets();
 
   return (
-    <div className={`allm-flex allm-flex-col ${isMaximized ? 'allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen' : 'allm-h-full'}`}>
+    <div
+      className={`allm-flex allm-flex-col ${isMaximized ? "allm-fixed allm-inset-0 allm-z-[9999] allm-rounded-none allm-w-screen allm-h-screen" : "allm-h-full"}`}
+    >
       {!settings.noHeader && (
         <ChatWindowHeader
           sessionId={sessionId}

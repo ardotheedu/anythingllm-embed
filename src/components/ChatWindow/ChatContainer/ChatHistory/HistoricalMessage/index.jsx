@@ -6,6 +6,7 @@ import { embedderSettings } from "@/main";
 import { v4 } from "uuid";
 import AnythingLLMIcon from "@/assets/anything-llm-icon.svg";
 import { formatDate } from "@/utils/date";
+import Feedback from "./Feedback";
 
 const ThoughtBubble = ({ thought }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,6 +46,9 @@ const HistoricalMessage = forwardRef(
       error = false,
       errorMsg = null,
       sentAt,
+      chatId,
+      feedbackScore,
+      sessionId,
     },
     ref
   ) => {
@@ -137,6 +141,17 @@ const HistoricalMessage = forwardRef(
             className={`allm-font-sans allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mt-2 ${role === "user" ? "allm-text-right" : "allm-text-left"}`}
           >
             {formatDate(sentAt)}
+          </div>
+        )}
+
+        {/* Feedback buttons - only for assistant messages */}
+        {role === "assistant" && !error && chatId && sessionId && (
+          <div className="allm-ml-[54px] allm-mr-6">
+            <Feedback
+              chatId={chatId}
+              feedbackScore={feedbackScore}
+              sessionId={sessionId}
+            />
           </div>
         )}
       </div>

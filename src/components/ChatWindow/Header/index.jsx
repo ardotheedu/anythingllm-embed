@@ -67,7 +67,11 @@ export default function ChatWindowHeader({
           className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-gray-100 allm-rounded-sm allm-text-slate-800/60"
           aria-label={isMaximized ? "Minimize" : "Maximize"}
         >
-          {isMaximized ? <ArrowsIn size={20} weight="bold" /> : <ArrowsOut size={20} weight="bold" />}
+          {isMaximized ? (
+            <ArrowsIn size={20} weight="bold" />
+          ) : (
+            <ArrowsOut size={20} weight="bold" />
+          )}
         </button>
         {settings.loaded && (
           <button

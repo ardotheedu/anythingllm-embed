@@ -6,7 +6,11 @@ import { embedderSettings } from "@/main";
 import debounce from "lodash.debounce";
 import { SEND_TEXT_EVENT } from "..";
 
-export default function ChatHistory({ settings = {}, history = [] }) {
+export default function ChatHistory({
+  settings = {},
+  history = [],
+  sessionId,
+}) {
   const replyRef = useRef(null);
   const [isAtBottom, setIsAtBottom] = useState(true);
   const chatHistoryRef = useRef(null);
@@ -98,6 +102,7 @@ export default function ChatHistory({ settings = {}, history = [] }) {
               feedbackScore={props.feedbackScore}
               error={props.error}
               errorMsg={props.errorMsg}
+              sessionId={sessionId}
             />
           );
         })}

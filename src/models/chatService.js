@@ -104,6 +104,47 @@ const ChatService = {
       },
     });
   },
+
+  updateFeedback: async function (embedSettings, sessionId, chatId, feedbackScore) {
+    const { baseApiUrl, embedId } = embedSettings;
+    const feedback = feedbackScore === null ? null : (feedbackScore ? 1 : 0);
+    
+    return await fetch(`${baseApiUrl}/${embedId}/${sessionId}/chat-feedback/${chatId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ feedback }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to update feedback");
+      })
+      .catch((e) => {
+        console.error("Error updating feedback:", e);
+        throw e;
+      });
+  },
+
+  updateFeedbackComment: async function (embedSettings, sessionId, chatId, comment) {
+    const { baseApiUrl, embedId } = embedSettings;
+    
+    return await fetch(`${baseApiUrl}/${embedId}/${sessionId}/chat-feedback/${chatId}/comment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to update feedback comment");
+      })
+      .catch((e) => {
+        console.error("Error updating feedback comment:", e);
+        throw e;
+      });
+  },
 };
 
 export default ChatService;
